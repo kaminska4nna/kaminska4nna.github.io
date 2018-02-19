@@ -1,6 +1,6 @@
 $(document).ready(function() {
   const apiRoot = 'https://morning-springs-79162.herokuapp.com/v1/task/';
-  const trelloApiRoot = 'http://localhost:8080/v1/trello/';
+  const trelloApiRoot = 'https://morning-springs-79162.herokuapp.com/v1/trello/';
   const datatableRowTemplate = $('[data-datatable-row-template]').children()[0];
   const $tasksContainer = $('[data-tasks-container]');
 
@@ -68,6 +68,7 @@ $(document).ready(function() {
     $.ajax({
       url: requestUrl,
       method: 'GET',
+      contentType: "application/json",
       success: function(tasks) {
         tasks.forEach(task => {
           availableTasks[task.id] = task;
